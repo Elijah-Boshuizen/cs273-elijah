@@ -1,6 +1,8 @@
 # cs273-elijah
 
 **student:** Elijah Boshuizen
+
+
 **Course:** CS 273 -- Database Systems, fall 2026
 **Instructor:** Amber Speer
 
