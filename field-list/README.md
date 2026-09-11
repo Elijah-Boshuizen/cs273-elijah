@@ -3,8 +3,8 @@
 ## Data Fields
 | Field | Why Needed | Notes / Uncertainty|
 |-------|------------|--------------------|
-| Pokemon_ID | | |
-| pokedex_Number | the unique identifier | - |
+| Pokemon_ID | Unique identifier | Auto Assign |
+| pokedex_Number | the number associated with each pokemon | - |
 | Pokemon_Name | So you know what to call the pokemon | - |
 | Pokemons_ability | so that you know the abilities of the pokemon | might need to be a seperate table |
 | Pokemons_type | So you know what types it is | Maybe seperate table or two fields for primary and secondary type |
