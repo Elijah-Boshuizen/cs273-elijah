@@ -25,3 +25,50 @@
 | EXP_growth_rate | how much EXP needed to level up | - |
 | evolution_method | how to evolve it if applicable | - |
 | Egg_cycle | how long it takes to hatch this species egg | - |
+
+## Calculated Fields
+| Field | Calculation |
+|-------|-------------|
+| 
+
+
+# Tables
+
+## Pokemon
+| Field |
+|-------|
+| Pkmn_ID (PK) |
+| Pokedex_Num |
+| Pkmn_name |
+| Hp |
+| Attack |
+| Defense |
+| Spc_Att |
+| Spc_Des |
+| Speed |
+| Pre_Evo |
+| Evolution |
+| Evo_Methode |
+| EV_Yield |
+| Catch_Rate |
+| Weight |
+| Height |
+| Gender_Ratio |
+| EXP_Growth_Rate |
+| Egg_Cycle |
+
+
+## Type
+| Field |
+|-------|
+| Type_ID (PK) |
+
+## Egg Groups
+| Field |
+|-------|
+| Egg_Group_ID (PK) |
+
+## Abilities
+| Field |
+|-------|
+| Ability_ID (PK) |
