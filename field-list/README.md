@@ -29,7 +29,8 @@
 ## Calculated Fields
 | Field | Calculation |
 |-------|-------------|
-| 
+| Pkmn_Type | Type1 + Type2 |
+| Pkmn_Egg | Egg_Group1 + Egg_Group2 |
 
 
 # Tables
