@@ -29,47 +29,81 @@
 ## Calculated Fields
 | Field | Calculation |
 |-------|-------------|
-| Pkmn_Type | Type1 + Type2 |
-| Pkmn_Egg | Egg_Group1 + Egg_Group2 |
+| Base_State_Total | Hp + Attack + Defense + Spc_Att + Spc_Def + Speed |
 
 
 # Tables
 
 ## Pokemon
-| Field |
-|-------|
-| Pkmn_ID (PK) |
-| Pokedex_Num |
-| Pkmn_name |
-| Hp |
-| Attack |
-| Defense |
-| Spc_Att |
-| Spc_Des |
-| Speed |
-| Pre_Evo |
-| Evolution |
-| Evo_Methode |
-| EV_Yield |
-| Catch_Rate |
-| Weight |
-| Height |
-| Gender_Ratio |
-| EXP_Growth_Rate |
-| Egg_Cycle |
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Pkmn_ID (PK) | Unique identifier | Auto assigned |
+| Pokedex_Num | location in pokedex | - |
+| Pkmn_name | So you know what to call the pokemon | - |
+| Hp | To know the Hp stat | - |
+| Attack | To know the attack stat | - |
+| Defense | To know the defense stat | - |
+| Spc_Att | To know the special attack stat | - |
+| Spc_Def | To know the special defense stat | - |
+| Speed | To know the speed stat | - |
+| Pre_Evo | What it evolved from | Might not be applicable for every pokemon |
+| Evolution | What it evolves into | Might not be applicable for all pokemon |
+| Evo_Methode | Methode used to evolve | Might not be applicable for all pokemon |
+| Catch_Rate | How easy the pokeomn is to catch | - |
+| Weight | How heavy the pokemon is | - |
+| Height | How tall the pokemon is | - |
+| Gender_Ratio | Ratio of male to femail | - |
+| EXP_Growth_Rate | How quickly it levels up | - |
+| Egg_Cycle | How quicky it hatches from an egg | - |
 
 
 ## Type
-| Field |
-|-------|
-| Type_ID (PK) |
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Type_ID (PK) | Unique identifier | Auto assigned |
+
+## Pokemon Types
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Pkmn_Type_ID (PK) | Unique identifier | Auto assigned |
+| Pkmn_ID (FK) | Link to pokemon table | - |
+| Type_ID (FK) | Link to type table | - |
 
 ## Egg Groups
-| Field |
-|-------|
-| Egg_Group_ID (PK) |
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Egg_Group_ID (PK) | Unique identifier | Auto assigned |
+
+## Pokemon Egg groups
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Pkmn_Egg_ID (PK) | Unique identifier | Auto assigned |
+| Pkmn_ID (FK) | Links to pokemon table | - |
+| Egg_Group_ID (FK) | Links to egg group table | - |
 
 ## Abilities
-| Field |
-|-------|
-| Ability_ID (PK) |
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Ability_ID (PK) | Unique identifier | Auto assigned |
+
+## Pokemon Abilities
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Pkmn_Ablty_ID (PK) | Unique identifier | Auto assigned |
+| Pkmn_ID (FK) | Links to pokemon table | - |
+| Ability_ID (FK) | Links to abilities table | - |
+
+## EV Yield
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| EV-ID (PK) | Unique identifier | Auto assigned |
+
+## Pokemon EV Yield
+| Field | Purpose | Notes |
+|-------|---------|-------|
+| Pkmn_EV_ID (PK) | Unique identifier | Auto assigned |
+| Pkmn_ID (FK) | Links to pokemon table | - |
+| EV_Yield (FK) | Links to EV yield table | - |
+
+
+
