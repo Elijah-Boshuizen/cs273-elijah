@@ -48,19 +48,19 @@
 | Speed | To know the speed stat | - |
 | Pre_Evo | What it evolved from | Might not be applicable for every pokemon |
 | Evolution | What it evolves into | Might not be applicable for all pokemon |
-| Evo_Methode | Methode used to evolve | Might not be applicable for all pokemon |
+| Evo_Method | Method used to evolve | Might not be applicable for all pokemon |
 | Catch_Rate | How easy the pokeomn is to catch | - |
 | Weight | How heavy the pokemon is | - |
 | Height | How tall the pokemon is | - |
-| Gender_Ratio | Ratio of male to femail | - |
+| Gender_Ratio | Ratio of male to female | - |
 | EXP_Growth_Rate | How quickly it levels up | - |
 | Egg_Cycle | How quicky it hatches from an egg | - |
-
 
 ## Type
 | Field | Purpose | Notes |
 |-------|---------|-------|
 | Type_ID (PK) | Unique identifier | Auto assigned |
+| Type_Name | Name of the type | - |
 
 ## Pokemon Types
 | Field | Purpose | Notes |
@@ -73,6 +73,7 @@
 | Field | Purpose | Notes |
 |-------|---------|-------|
 | Egg_Group_ID (PK) | Unique identifier | Auto assigned |
+| Egg_Group_name | name of the egg group | - |
 
 ## Pokemon Egg groups
 | Field | Purpose | Notes |
@@ -85,6 +86,7 @@
 | Field | Purpose | Notes |
 |-------|---------|-------|
 | Ability_ID (PK) | Unique identifier | Auto assigned |
+| Ability_Name | Name of the ability | - |
 
 ## Pokemon Abilities
 | Field | Purpose | Notes |
@@ -97,6 +99,7 @@
 | Field | Purpose | Notes |
 |-------|---------|-------|
 | EV-ID (PK) | Unique identifier | Auto assigned |
+| EV_Stat | name of the stat yielded | - |
 
 ## Pokemon EV Yield
 | Field | Purpose | Notes |
@@ -104,11 +107,15 @@
 | Pkmn_EV_ID (PK) | Unique identifier | Auto assigned |
 | Pkmn_ID (FK) | Links to pokemon table | - |
 | EV_Yield (FK) | Links to EV yield table | - |
+| EV_Increase | How much the EV is increased | - |
+
+:::
 
 ## Calculated Fields
 | Field | Calculation |
 |-------|-------------|
 | Base_State_Total | Hp + Attack + Defense + Spc_Att + Spc_Def + Speed |
+| Combined_Types | Type_Name1 + Type_Name2 |
 
 
 
