@@ -14,8 +14,8 @@
 | special_attack_stat | To know the special attack stat | - |
 | special_defense_stat | To know the special defense stat | - |
 | speed_stat | To know the speed stat | - |
-| base_stat_total | the total of all its stats combined | might need to be calculated |
-| Evolution | That you know who it can evolve from and into | might need to be two fields, pre evo and evo |
+| base_stat_total | the total of all its stats combined | Calculated |
+| Evolution | That you know who it can evolve from and into | Split into two fields, pre evo and evo |
 | EV_yield | The type and amount of EVs given when defeated | Separate table |
 | Egg_group | what it can be bread with | might have to have a different table |
 | Catch_rate | how easy it is to catch | - |
