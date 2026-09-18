@@ -109,8 +109,6 @@
 | EV_Yield (FK) | Links to EV yield table | - |
 | EV_Increase | How much the EV is increased | - |
 
-:::
-
 ## Calculated Fields
 | Field | Calculation |
 |-------|-------------|
