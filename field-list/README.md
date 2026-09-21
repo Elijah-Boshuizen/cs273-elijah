@@ -47,8 +47,6 @@
 | Spc_Def | To know the special defense stat | - |
 | Speed | To know the speed stat | - |
 | Pre_Evo | What it evolved from | Might not be applicable for every pokemon |
-| Evolution | What it evolves into | Might not be applicable for all pokemon |
-| Evo_Method | Method used to evolve | Might not be applicable for all pokemon |
 | Catch_Rate | How easy the pokeomn is to catch | - |
 | Weight | How heavy the pokemon is | - |
 | Height | How tall the pokemon is | - |
@@ -122,8 +120,9 @@ Some pokemon can evolve into multiple different pokemon but can only do so once.
 | Field | Purpose | Notes |
 |-------|---------|-------|
 | Evo_ID (PK) | Unique identifier | Auto assigned |
-| Evo_From | What pokemon is evolving | - |
+| Pkmn_ID (FK) | What Pokémon is evolving, Links to Pokémon table | - |
 | Evo_Into | What the pokemon is evolving into | - |
+| Evo_Method | How to evolve | - |
 
 ## Calculated Fields
 | Field | Calculation |
