@@ -98,3 +98,98 @@ Some pokemon can evolve into multiple different pokemon but can only do so once.
 
 I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group into separate tables to allow pokemon to have multiple of each. I also had to make Base_State_Total and Type into calculated fields.
 
+
+*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*
+
+
+## Pokemon
+| Field | Type | null? | Default | Notes / Constraints |
+|-----------------|------|-------|---------|---------------------|
+| Pkmn_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pokedex_Num | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Pkmn_name | VARCHAR(50) | NOT NULL | - | - |
+| Hp | DECIMAL(3, 0) | NOT NULL | - | - |
+| Attack | DECIMAL(3, 0) | NOT NULL | - | - |
+| Defense | DECIMAL(3, 0) | NOT NULL | - | - |
+| Spc_Att | DECIMAL(3, 0) | NOT NULL | - | - |
+| Spc_Def | DECIMAL(3, 0) | NOT NULL | - | - |
+| Speed | DECIMAL(3, 0) | NOT NULL | - | - |
+| Pre_Evo | VARCHAR(50) | NULL | - | - |
+| Catch_Rate | TINYINT UNSIGNED | NOT NULL | - | - |
+| Weight | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Height_Feet | TINYINT UNSIGNED | NOT NULL | - | - |
+| Height_Inches | TINYINT + CHECK (Height_Inches BETWEEN 0 AND 11) | NOT NULL | - | 
+| EXP_Growth_Rate | VARCHAR(11) + CHECK (EXP_Growth_Rate IN ('Fast', 'Medium Fast', 'Medium Slow', 'Slow', 'Erratic', 'Fluctuating')) | NOT NULL | - | - |
+| Egg_Cycle | TINYINT UNSIGNED | NOT NULL | - | - |
+
+## Type
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Type_Name | VARCHAR(8) | NOT NULL | - | - |
+
+## Pokemon Types
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Pkmn_Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Type_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+
+## Egg Groups
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Egg_Group_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Egg_Group_name | VARCHAR(13) | NOT NULL | - | - |
+
+## Pokemon Egg groups
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Pkmn_Egg_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pkmn_ID (FK) | IN UNSIGNED | NOT NULL | - | - |
+| Egg_Group_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+
+## Abilities
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Ability_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Ability_Name | VARCHAR(20)
+
+## Pokemon Abilities
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Pkmn_Ablty_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Ability_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+
+## EV Yield
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| EV-ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| EV_Stat | VARCHAR(15) | NOT NULL | - | - |
+
+## Pokemon EV Yield
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Pkmn_EV_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| EV_Yield (FK) | INT UNSIGNED | NOT NULL | - | - |
+| EV_Increase | TINYINT | NOT NULL | - | - |
+
+## Evolution
+| Field | Type | Null? | Default | Notes / Constraints |
+|-------|------|-------|---------|---------------------|
+| Evo_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Evo_Into | VARCHAR(50) | NOT NULL | - | - |
+| Evo_Method | VARCHAR(50) | NOT NULL | - | - |
+
+## Calculated Fields
+| Field | Derivation |
+|-------|-------------|
+| Base_State_Total | Hp + Attack + Defense + Spc_Att + Spc_Def + Speed |
+| Combined_Types | Type_Name1 + Type_Name2 |
+
+
+
+
+
