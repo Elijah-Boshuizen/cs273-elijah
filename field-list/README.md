@@ -99,7 +99,7 @@ Some pokemon can evolve into multiple different pokemon but can only do so once.
 I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group into separate tables to allow pokemon to have multiple of each. I also had to make Base_State_Total and Type into calculated fields.
 
 
-*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*
+*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*
 
 
 ## Pokemon
