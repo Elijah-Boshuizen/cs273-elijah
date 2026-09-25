@@ -133,8 +133,8 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Pkmn_Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
-| Type_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Type_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 
 ## Egg Groups
 | Field | Type | Null? | Default | Notes / Constraints |
@@ -146,8 +146,8 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Pkmn_Egg_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | IN UNSIGNED | NOT NULL | - | - |
-| Egg_Group_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Pkmn_ID (FK) | IN UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Egg_Group_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 
 ## Abilities
 | Field | Type | Null? | Default | Notes / Constraints |
@@ -159,8 +159,8 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Pkmn_Ablty_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
-| Ability_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Ability_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 
 ## EV Yield
 | Field | Type | Null? | Default | Notes / Constraints |
@@ -172,15 +172,15 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Pkmn_EV_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
-| EV_Yield (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| EV_Yield (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | EV_Increase | TINYINT | NOT NULL | - | - |
 
 ## Evolution
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Evo_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | - | - |
+| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Evo_Into | VARCHAR(50) | NOT NULL | - | - |
 | Evo_Method | VARCHAR(50) | NOT NULL | - | - |
 
