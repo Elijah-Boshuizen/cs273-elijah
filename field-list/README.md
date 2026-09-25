@@ -119,7 +119,7 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Catch_Rate | TINYINT UNSIGNED | NOT NULL | - | - |
 | Weight | SMALLINT UNSIGNED | NOT NULL | - | in lbs |
 | Height_Feet | TINYINT UNSIGNED | NOT NULL | - | - |
-| Height_Inches | TINYINT + CHECK (Height_Inches BETWEEN 0 AND 11) | NOT NULL | - | 
+| Height_Inches | TINYINT | NOT NULL | - | CHECK (Height_Inches BETWEEN 0 AND 11) |
 | EXP_Growth_Rate | VARCHAR(11) | NOT NULL | - | CHECK (EXP_Growth_Rate IN ('Fast', 'Medium Fast', 'Medium Slow', 'Slow', 'Erratic', 'Fluctuating'))  |
 | Egg_Cycle | TINYINT UNSIGNED | NOT NULL | - | - |
 
