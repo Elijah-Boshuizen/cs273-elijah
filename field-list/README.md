@@ -166,7 +166,7 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | EV-ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
+| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK (EV_Stat IN ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
 
 ## Pokemon EV Yield
 | Field | Type | Null? | Default | Notes / Constraints |
