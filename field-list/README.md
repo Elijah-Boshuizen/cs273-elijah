@@ -109,12 +109,12 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Pkmn_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
 | Pokedex_Num | SMALLINT UNSIGNED | NOT NULL | - | - |
 | Pkmn_name | VARCHAR(50) | NOT NULL | - | - |
-| Hp | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
-| Attack | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
-| Defense | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
-| Spc_Att | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
-| Spc_Def | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
-| Speed | DECIMAL(3, 0) | NOT NULL | - | Unsure if decimal is correct |
+| Hp | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Attack | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Defense | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Spc_Att | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Spc_Def | SMALLINT UNSIGNED | NOT NULL | - | - |
+| Speed | SMALLINT UNSIGNED | NOT NULL | - | - |
 | Pre_Evo | VARCHAR(50) | NULL | - | - |
 | Catch_Rate | TINYINT UNSIGNED | NOT NULL | - | - |
 | Weight | SMALLINT UNSIGNED | NOT NULL | - | - |
