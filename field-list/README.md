@@ -153,7 +153,7 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Ability_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Ability_Name | VARCHAR(20)
+| Ability_Name | VARCHAR(20) | NOT NULL | - | - |
 
 ## Pokemon Abilities
 | Field | Type | Null? | Default | Notes / Constraints |
