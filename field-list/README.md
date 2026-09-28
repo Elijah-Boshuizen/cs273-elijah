@@ -162,18 +162,12 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Ability_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 
-## EV Yield
-| Field | Type | Null? | Default | Notes / Constraints |
-|-------|------|-------|---------|---------------------|
-| EV-ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK (EV_Stat IN ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
-
 ## Pokemon EV Yield
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Pkmn_EV_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
 | Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| EV_Yield (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK (EV_Stat IN ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
 | EV_Increase | TINYINT | NOT NULL | - | - |
 
 ## Evolution
