@@ -122,6 +122,8 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Height_Inches | TINYINT | NOT NULL | - | CHECK (Height_Inches BETWEEN 0 AND 11) |
 | EXP_Growth_Rate | VARCHAR(11) | NOT NULL | - | CHECK (EXP_Growth_Rate IN ('Fast', 'Medium Fast', 'Medium Slow', 'Slow', 'Erratic', 'Fluctuating'))  |
 | Egg_Cycle | TINYINT UNSIGNED | NOT NULL | - | - |
+| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK (EV_Stat IN ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
+| EV_Increase | TINYINT | NOT NULL | - | - |
 
 ## Types
 | Field | Type | Null? | Default | Notes / Constraints |
@@ -162,13 +164,6 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 | Ability_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
 
-## Pokemon EV Yield
-| Field | Type | Null? | Default | Notes / Constraints |
-|-------|------|-------|---------|---------------------|
-| Pkmn_EV_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| EV_Stat | VARCHAR(15) | NOT NULL | - | CHECK (EV_Stat IN ('HP', 'Att', 'Def', 'Spc Att', 'Spc Def', 'Speed') |
-| EV_Increase | TINYINT | NOT NULL | - | - |
 
 ## Evolution
 | Field | Type | Null? | Default | Notes / Constraints |
