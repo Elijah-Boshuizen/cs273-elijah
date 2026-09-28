@@ -123,7 +123,7 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | EXP_Growth_Rate | VARCHAR(11) | NOT NULL | - | CHECK (EXP_Growth_Rate IN ('Fast', 'Medium Fast', 'Medium Slow', 'Slow', 'Erratic', 'Fluctuating'))  |
 | Egg_Cycle | TINYINT UNSIGNED | NOT NULL | - | - |
 
-## Type
+## Types
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
