@@ -127,14 +127,8 @@ I had to split EV_Yield, Pokemon_Type, Pokemon_Ability, Evolution, and Egg_Group
 | Field | Type | Null? | Default | Notes / Constraints |
 |-------|------|-------|---------|---------------------|
 | Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
-| Type_Name | VARCHAR(8) | NOT NULL | - | - |
-
-## Pokemon Types
-| Field | Type | Null? | Default | Notes / Constraints |
-|-------|------|-------|---------|---------------------|
-| Pkmn_Type_ID (PK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | PK - surrogate, auto-assigned |
 | Pkmn_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
-| Type_ID (FK) | INT UNSIGNED | NOT NULL | AUTO_INCREMENT | FK - surrogate, auto-assigned |
+| Type_Name | VARCHAR(8) | NOT NULL | - | - |
 
 ## Egg Groups
 | Field | Type | Null? | Default | Notes / Constraints |
