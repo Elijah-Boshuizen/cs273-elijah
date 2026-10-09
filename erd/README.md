@@ -6,3 +6,4 @@ Most relationships are 1:N as they are connected to linking tables. the exceptio
 
 Most of my relationships were pretty easy to figure out as they were all the same. I think the hardest was how to put a relationship to a linking table as I wasn't sure about it until I talked to my professor, the other I was fairly confident about.
 
+The only thing that changed from my phase 2 field list was I simplified the types down to INT and VARCHAR instead of having the different sizes, I figured this would make things simplier.
