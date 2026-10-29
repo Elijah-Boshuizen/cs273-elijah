@@ -44,7 +44,7 @@ CONSTRAINT chk_types
 -- Child TABLE: Egg Groups
 CREATE TABLE Egg_Groups (
 EggGroupID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-GroupName VARCHAR(10) NOT NULL,
+GroupName VARCHAR(15) NOT NULL,
 CONSTRAINT chk_groupname
 	CHECK (GroupName IN ('Amorphous', 'Bug', 'Dragon', 'Fairy', 'Field', 'Flying', 'Grass', 'Human-Like', 'Mineral', 'Monster', 'Water 1', 'Water 2', 'Water 3', 'Ditto', 'Undiscovered'))
 );
@@ -56,11 +56,11 @@ AbilityName VARCHAR(50) NOT NULL
 );
 
 -- Child TABLE: Evolutions
-CREATE TABLE Evolustions (
+CREATE TABLE Evolutions (
 EvoID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 PkmnID INT UNSIGNED NOT NULL,
 EvoInto VARCHAR(50) NOT NULL,
-EvoMethode TEXT NOT NULL,
+EvoMethod TEXT NOT NULL,
 CONSTRAINT fk_Evolutions_Pkmn
 	FOREIGN KEY (PkmnID)
 	REFERENCES Pokemon(PkmnID)
@@ -79,7 +79,8 @@ CONSTRAINT fk_PkmnTypes_Pkmn
 CONSTRAINT fk_PkmnTypes_Types
 	FOREIGN KEY (TypeId)
 	REFERENCES Types(TypeId)
-	ON DELETE CASCADE ON UPDATE CASCADE
+	ON DELETE CASCADE ON UPDATE CASCADE,
+	UNIQUE (PkmnID, TypeId)
 );
 
 -- Child TABLE: Pokemon_Egg_Groups
