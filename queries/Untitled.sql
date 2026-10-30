@@ -1,0 +1,113 @@
+-- ============================================================
+-- CS273 Pokemon Database Schema
+-- Author: Elijah Boshuizen Date: Oct 2026
+-- ============================================================
+DROP DATABASE IF EXISTS PokemonData;
+CREATE DATABASE PokemonData;
+USE PokemonData;
+-- PARENT TABLE 1: Pokemon
+CREATE TABLE Pokemon (
+PkmnID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PkmnName VARCHAR(50) NOT NULL,
+DexNum INT UNSIGNED NOT NULL,
+Hp INT UNSIGNED NOT NULL,
+Attack INT UNSIGNED NOT NULL,
+Defense INT UNSIGNED NOT NULL,
+SpeAtt INT UNSIGNED NOT NULL,
+SpeDef INT UNSIGNED NOT NULL,
+Speed INT UNSIGNED NOT NULL,
+PreEvo VARCHAR(50) NULL,
+catchRate INT UNSIGNED NOT NULL,
+Weight INT UNSIGNED NOT NULL,
+HeightFeet INT UNSIGNED NOT NULL,
+HeightInch INT UNSIGNED NOT NULL,
+ExpGrowth VARCHAR(12) NOT NULL,
+EggCycle INT UNSIGNED NOT NULL,
+EVStat VARCHAR(15) NOT NULL,
+EVIncrease INT UNSIGNED NOT NULL,
+CONSTRAINT chk_HeightInch
+    CHECK (HeightInch >= 0 AND HeightInch <= 11),
+CONSTRAINT chk_ExpGrowth
+	CHECK (EXPGrowth IN ('Fast', 'Medium Fast', 'Medium Slow', 'Slow', 'Erratic', 'Fluctuating')),
+CONSTRAINT chk_EVStat
+	CHECK (EVStat IN ('HP', 'Att', 'Def', 'Spe Att', 'Spe Def', 'Speed'))
+);
+
+-- Child TABLE: Types
+CREATE TABLE Types (
+TypeId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+TypeName VARCHAR(10) NOT NULL,
+CONSTRAINT chk_types
+	CHECK (TypeName IN ('NORMAL', 'FIRE', 'WATER', 'GRASS', 'ELECTRIC', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY'))
+);
+
+-- Child TABLE: Egg Groups
+CREATE TABLE Egg_Groups (
+EggGroupID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+GroupName VARCHAR(10) NOT NULL,
+CONSTRAINT chk_groupname
+	CHECK (GroupName IN ('Amorphous', 'Bug', 'Dragon', 'Fairy', 'Field', 'Flying', 'Grass', 'Human-Like', 'Mineral', 'Monster', 'Water 1', 'Water 2', 'Water 3', 'Ditto', 'Undiscovered'))
+);
+
+-- Child TABLE: Abilities
+CREATE TABLE Abilities (
+AbilityID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+AbilityName VARCHAR(50) NOT NULL
+);
+
+-- Child TABLE: Evolutions
+CREATE TABLE Evolustions (
+EvoID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PkmnID INT UNSIGNED NOT NULL,
+EvoInto VARCHAR(50) NOT NULL,
+EvoMethode TEXT NOT NULL,
+CONSTRAINT fk_Evolutions_Pkmn
+	FOREIGN KEY (PkmnID)
+	REFERENCES Pokemon(PkmnID)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Child TABLE: Pokemon_Types
+CREATE TABLE Pokemon_Types (
+PkmnTypeID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PkmnID INT UNSIGNED NOT NULL,
+TypeId INT UNSIGNED NOT NULL,
+CONSTRAINT fk_PkmnTypes_Pkmn
+	FOREIGN KEY (PkmnID)
+	REFERENCES Pokemon(PkmnID)
+	ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_PkmnTypes_Types
+	FOREIGN KEY (TypeId)
+	REFERENCES Types(TypeId)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Child TABLE: Pokemon_Egg_Groups
+CREATE TABLE Pokemon_Egg_Groups (
+PkmnEggID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PkmnID INT UNSIGNED NOT NULL,
+EggGroupID INT UNSIGNED NOT NULL,
+CONSTRAINT fk_EggGroups_Pkmn
+	FOREIGN KEY (PkmnID)
+	REFERENCES Pokemon(PkmnID)
+	ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_pkmnEgg_EggGroups
+	FOREIGN KEY (EggGroupID)
+	REFERENCES Egg_Groups(EggGroupID)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Child TABLE: Pokemon_Abilities
+CREATE TABLE Pokemon_Abilities (
+PkmnAbilityID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+PkmnID INT UNSIGNED NOT NULL,
+AbilityID INT UNSIGNED NOT NULL,
+CONSTRAINT fk_Abilities_Pkmn
+	FOREIGN KEY (PkmnID)
+	REFERENCES Pokemon(PkmnID)
+	ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_PkmnAbilities_Ability
+	FOREIGN KEY (AbilityID)
+	REFERENCES Abilities(AbilityID)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
