@@ -24,3 +24,19 @@ JOIN Egg_Groups e ON e.EggGroupID = pe.EggGroupID
 WHERE t.TypeName = 'WATER' AND e.GroupName = 'Monster';
 
 This query finds all pokemon that are both water type and are in the monster egg group.
+
+SELECT p.PkmnName, t.TypeName, p.Hp, p.Defense
+FROM Pokemon p
+JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
+JOIN Types t ON t.TypeId = pt.TypeId
+WHERE t.TypeName = 'GRASS' AND p.Defense > 50 AND p.Hp > 61;
+
+This query finds all pokemon that would be able to take a hit and survive an attack from a certain pokemon.
+
+SELECT t.TypeName, ROUND(AVG(p.Speed), 1) AS AvgSpeed
+FROM Pokemon p
+Join Pokemon_Types pt ON p.PkmnID = pt.PkmnID
+JOIN Types t ON t.TypeId = pt.TypeId
+GROUP BY t.TypeId, t.TypeName
+
+This query finds the average speed of all pokemon i each type.
