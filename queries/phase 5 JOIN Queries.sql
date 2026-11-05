@@ -51,24 +51,33 @@ GROUP BY t.TypeId, t.TypeName;
 SELECT COUNT(pt.PkmnID) AS NumberOfTypes, t.TypeName
 FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
-join Types t ON t.TypeId = pt.TypeId
+JOIN Types t ON t.TypeId = pt.TypeId
 GROUP BY t.TypeName;
 
 -- Q2: objective 2 - store Pokemon stats and objective 4 - catalogue Pokemon types
 SELECT t.TypeName, ROUND(AVG(p.Attack), 1) AS AvgAttack
 FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
-join Types t ON t.TypeId = pt.TypeId
+JOIN Types t ON t.TypeId = pt.TypeId
 GROUP BY t.TypeName;
 
--- Q3: objective 3 - store pokemone abilities
+-- Q3: objective 5 - store pokemone abilities
 SELECT a.AbilityName, COUNT(pa.PkmnID) AS NumOfPokemon
 FROM Pokemon p
 JOIN Pokemon_Abilities pa ON p.PkmnID = pa.PkmnID
-join Abilities a ON a.AbilityID = pa.AbilityID
+JOIN Abilities a ON a.AbilityID = pa.AbilityID
 GROUP BY a.AbilityName;
 
--- Q4:
+-- Q4: objective 2 store pokemon stats
+SELECT PkmnName, Attack
+FROM Pokemon 
+WHERE Attack > (SELECT AVG(Attack) FROM Pokemon)
 
-
--- Q5:
+-- Q5: objective 4 - catalogue pokemon types
+SELECT p.PkmnName, GROUP_CONCAT(t.TypeName ORDER BY t.TypeName SEPARATOR ' / ') AS Types
+FROM Pokemon p
+JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
+JOIN Types t ON t.TypeId = pt.TypeId
+GROUP BY p.PkmnName, p.DexNum
+HAVING COUNT(*) = 2
+ORDER BY p.DexNum ASC;
