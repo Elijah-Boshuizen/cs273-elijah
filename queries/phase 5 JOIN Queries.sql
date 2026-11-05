@@ -40,3 +40,19 @@ FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
 JOIN Types t ON t.TypeId = pt.TypeId
 GROUP BY t.TypeId, t.TypeName;
+
+
+-- ═══════════════════════════════
+-- Phase 5B: Aggregate Queries
+-- Elijah Boshuizen | CS273 | Oct 2026
+-- ═══════════════════════════════
+
+-- Q1:
+
+-- Q2:
+
+-- Q3:
+
+-- Q4:
+
+-- Q5:
