@@ -34,7 +34,7 @@ JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
 JOIN Types t ON t.TypeId = pt.TypeId
 WHERE t.TypeName = 'GRASS' AND p.Defense > 50 AND p.Hp > 61;
 
- -- Q5: Objective 2 - Store pokemon Stats and objtve 4 - catalogue Pokemon types
+ -- Q5: Objective 2 - Store pokemon stats and objective 4 - catalogue Pokemon types
 SELECT t.TypeName, ROUND(AVG(p.Speed), 1) AS AvgSpeed
 FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
@@ -47,12 +47,28 @@ GROUP BY t.TypeId, t.TypeName;
 -- Elijah Boshuizen | CS273 | Oct 2026
 -- ═══════════════════════════════
 
--- Q1:
+-- Q1: objective 4 - catalogue Pokemon types
+SELECT COUNT(pt.PkmnID) AS NumberOfTypes, t.TypeName
+FROM Pokemon p
+JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
+join Types t ON t.TypeId = pt.TypeId
+GROUP BY t.TypeName;
 
--- Q2:
+-- Q2: objective 2 - store Pokemon stats and objective 4 - catalogue Pokemon types
+SELECT t.TypeName, ROUND(AVG(p.Attack), 1) AS AvgAttack
+FROM Pokemon p
+JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
+join Types t ON t.TypeId = pt.TypeId
+GROUP BY t.TypeName;
 
--- Q3:
+-- Q3: objective 3 - store pokemone abilities
+SELECT a.AbilityName, COUNT(pa.PkmnID) AS NumOfPokemon
+FROM Pokemon p
+JOIN Pokemon_Abilities pa ON p.PkmnID = pa.PkmnID
+join Abilities a ON a.AbilityID = pa.AbilityID
+GROUP BY a.AbilityName;
 
 -- Q4:
+
 
 -- Q5:
