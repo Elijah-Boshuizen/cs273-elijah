@@ -1,7 +1,9 @@
 -- ═══════════════════════════════
--- Phase 5A: JOIN Queries
+-- Phase 5 - All Queries
 -- Elijah Boshuizen | CS273 | Oct 2026
 -- ═══════════════════════════════
+
+-- ════════════ Phase 5A: JOIN Queries ═══════════════════════════════════════
 
 USE PokemonData
 
@@ -41,17 +43,14 @@ JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
 JOIN Types t ON t.TypeId = pt.TypeId
 GROUP BY t.TypeId, t.TypeName;
 
+-- ════════════ Phase 5B: Aggregate Queries ═══════════════════════════════════════
 
--- ═══════════════════════════════
--- Phase 5B: Aggregate Queries
--- Elijah Boshuizen | CS273 | Oct 2026
--- ═══════════════════════════════
+USE PokemonData
 
 -- Q1: objective 4 - catalogue Pokemon types
 SELECT COUNT(pt.PkmnID) AS NumberOfPokemon, t.TypeName
-FROM Pokemon p
-JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
-JOIN Types t ON t.TypeId = pt.TypeId
+FROM types t
+LEFT JOIN Types t ON t.TypeId = pt.TypeId
 GROUP BY t.TypeName;
 
 -- Q2: objective 2 - store Pokemon stats and objective 4 - catalogue Pokemon types
