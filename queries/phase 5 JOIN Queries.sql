@@ -48,7 +48,7 @@ GROUP BY t.TypeId, t.TypeName;
 -- ═══════════════════════════════
 
 -- Q1: objective 4 - catalogue Pokemon types
-SELECT COUNT(pt.PkmnID) AS NumberOfTypes, t.TypeName
+SELECT COUNT(pt.PkmnID) AS NumberOfPokemon, t.TypeName
 FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
 JOIN Types t ON t.TypeId = pt.TypeId
