@@ -49,42 +49,42 @@
 
 **Why INNER:** Information from all tables are required.
 
-## Q6: 
+## Q6: Find the Number of Pokemone for Each Type
 
-**Objectives:**
+**Objectives:** objective 4 - catalogue Pokemon types
 
-**Why This technique:**
+**Why This technique:** i needed to count how many Pokemon each type had.
 
-**Whats Revealed:**
+**What's Revealed:** Only 5 types have any Pokemon and 4 of them have 3 each.
 
-## Q7: 
+## Q7: Finds the average attack stat of all pokemon in a type
 
-**Objectives:**
+**Objectives:** objective 2- store pokemon stats and objective 4 - catalogue pokemon types
 
-**Why This technique:**
+**Why This technique:** In order to get an average you need to use the AVG aggregate and the ROUND aggregate was used so that I wouldn't get  big messy number.
 
-**Whats Revealed:**
+**What's Revealed:** Most of them sit in the mid 60s. except flying, that got an average of 84.
 
-## Q8: 
+## Q8: Finds the number of pokemon that can learn each ability
 
-**Objectives:**
+**Objectives:** objective 5 - store pokemon abilities
 
-**Why This technique:**
+**Why This technique:** just more counting
 
-**Whats Revealed:**
+**What's Revealed:** Every ability has the same number of pokemon tht can learn it
 
-## Q9: 
+## Q9: What pokemon has an attack stat higher than the average
 
-**Objectives:**
+**Objectives:** objective 2 - store pokemon stats
 
-**Why This technique:**
+**Why This technique:** the sub-query is needed to find the average attack stat so that i can compare the pokemon's attack to it.
 
-**Whats Revealed:**
+**What's Revealed:** Only the final evolutions have an attack over the average.
 
-## Q10: 
+## Q10: What pokemon are dual types
 
-**Objectives:**
+**Objectives:** objective 4 - catalogue pokemon types
 
-**Why This technique:**
+**Why This technique:** GROUP_CONCAT is there just for formatting, it reduces the number of rows to one per pokemon. HAVING COUNT(*) is here to make sure that the only pokemon that re displayed are ones that have 2 types.
 
-**Whats Revealed:**
+**What's Revealed:** It shows all pokemon tht are dual typed which currently only includes the Bulbasaur line and Charizard.
