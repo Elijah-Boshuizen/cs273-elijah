@@ -21,13 +21,23 @@ LEFT JOIN Pokemon_Types pt ON t.typeId = pt.TypeId
 WHERE PkmnID IS NULL;
 
  -- Q3: Objective 1 - Catalogue pokemon Names and objective 4 - Catalogue Pokemon Types
-SELECT p.PkmnName, t.TypeName, e.GroupName
+ -- Added sub-query later
+SELECT p.PkmnName, COUNT(e.EggGroupID) AS EggGroups
 FROM Pokemon p
 JOIN Pokemon_Types pt ON p.PkmnID = pt.PkmnID
 JOIN Types t ON t.TypeId = pt.TypeId
 JOIN Pokemon_Egg_Groups pe ON p.PkmnID = pe.PkmnID
 JOIN Egg_Groups e ON e.EggGroupID = pe.EggGroupID
-WHERE t.TypeName = 'WATER' AND e.GroupName = 'Monster';
+JOIN (
+    SELECT p2.PkmnID, COUNT(e2.EggGroupID) AS EggGroups
+    FROM Pokemon p2
+    JOIN Pokemon_Egg_Groups pe2 ON p2.PkmnID = pe2.PkmnID
+    JOIN Egg_Groups e2 ON e2.EggGroupID = pe2.EggGroupID
+    GROUP BY p2.PkmnID
+    HAVING COUNT(e2.EggGroupID) >= 2
+) AS multi ON multi.PkmnID = p.PkmnID
+WHERE t.TypeName = 'WATER'
+GROUP BY p.PkmnName;
 
  -- Q4: Objective 2 - Store pokemon Stats and objtve 4 - catalogue Pokemon types
 SELECT p.PkmnName, t.TypeName, p.Hp, p.Defense
