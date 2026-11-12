@@ -67,6 +67,24 @@ CONSTRAINT fk_Evolutions_Pkmn
 	ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+ -- Chil TABLE: Moves
+CREATE TABLE Moves (
+    MoveID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    TypeId INT UNSIGNED NOT NULL,
+    Name VARCHAR(50) NOT NULL UNIQUE,
+    category VARCHAR(15) NOT NULL,
+    Power INT UNSIGNED NULL,
+    Accuracy INT UNSIGNED NULL,
+    PP INT UNSIGNED NOT NULL,
+    Effect TEXT NOT NULL,
+    CONSTRAINT chk_category
+        CHECK (category IN ('Physical', 'Special', 'Status')),
+    CONSTRAINT fk_Moves_Types
+        FOREIGN KEY (TypeId)
+        REFERENCES Types(TypeId)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 -- Child TABLE: Pokemon_Types
 CREATE TABLE Pokemon_Types (
 PkmnTypeID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -111,4 +129,20 @@ CONSTRAINT fk_PkmnAbilities_Ability
 	FOREIGN KEY (AbilityID)
 	REFERENCES Abilities(AbilityID)
 	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+ -- Child TABLE: Move_Sets
+CREATE TABLE Move_Sets (
+    Move_SetID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    PkmnID INT UNSIGNED NOT NULL,
+    MoveID INT UNSIGNED NOT NULL,
+    CONSTRAINT fk_Move_Sets_Pkmn
+        FOREIGN KEY (PkmnID)
+        REFERENCES Pokemon(PkmnID)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_Move_Sets_Moves
+        FOREIGN KEY (MoveID)
+        REFERENCES Moves(MoveID)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    UNIQUE (PkmnID, MoveID)
 );
