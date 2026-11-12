@@ -8,7 +8,7 @@ USE PokemonData;
 -- PARENT TABLE 1: Pokemon
 CREATE TABLE Pokemon (
 PkmnID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-PkmnName VARCHAR(50) NOT NULL,
+PkmnName VARCHAR(50) NOT NULL UNIQUE,
 DexNum INT UNSIGNED NOT NULL,
 Hp INT UNSIGNED NOT NULL,
 Attack INT UNSIGNED NOT NULL,
@@ -36,7 +36,7 @@ CONSTRAINT chk_EVStat
 -- Child TABLE: Types
 CREATE TABLE Types (
 TypeId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-TypeName VARCHAR(10) NOT NULL,
+TypeName VARCHAR(10) NOT NULL UNIQUE,
 CONSTRAINT chk_types
 	CHECK (TypeName IN ('NORMAL', 'FIRE', 'WATER', 'GRASS', 'ELECTRIC', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY'))
 );
@@ -44,7 +44,7 @@ CONSTRAINT chk_types
 -- Child TABLE: Egg Groups
 CREATE TABLE Egg_Groups (
 EggGroupID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-GroupName VARCHAR(15) NOT NULL,
+GroupName VARCHAR(15) NOT NULL UNIQUE,
 CONSTRAINT chk_groupname
 	CHECK (GroupName IN ('Amorphous', 'Bug', 'Dragon', 'Fairy', 'Field', 'Flying', 'Grass', 'Human-Like', 'Mineral', 'Monster', 'Water 1', 'Water 2', 'Water 3', 'Ditto', 'Undiscovered'))
 );
@@ -52,7 +52,7 @@ CONSTRAINT chk_groupname
 -- Child TABLE: Abilities
 CREATE TABLE Abilities (
 AbilityID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-AbilityName VARCHAR(50) NOT NULL
+AbilityName VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- Child TABLE: Evolutions
