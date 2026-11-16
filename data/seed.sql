@@ -2510,3 +2510,57 @@ INSERT INTO Move_Sets (PkmnID, MoveID) VALUES
 (151, 94), -- Mew: Psychic
 (151, 112), -- Mew: Barrier
 (151, 133); -- Mew: Amnesia
+
+
+
+
+
+
+-- Adding a move requires a TRANSACTION because if i successfuly make the move
+-- but then am unable to give tht move to  pokemon then I have a move in my
+-- database that no pokemon can use and its just taking up dead space. so I
+-- use  TRANSACTION to make it an all or nothing attempt.
+
+START TRANSACTION;
+
+INSERT INTO Moves (TypeId, Name, category, Power, Accuracy, PP, Effect)
+VALUES (1, 'Scary Face', 'Status', NULL, 90, 10, 'Sharply lowers the target''s Speed.');
+
+SET @scary_face_id = LAST_INSERT_ID();
+
+INSERT INTO Move_Sets (PkmnID, MoveID)
+VALUES (4, @scary_face_id),
+       (5, @scary_face_id),
+       (6, @scary_face_id);
+ 
+SELECT m.MoveID, m.Name, p.PkmnName
+FROM Move_Sets ms
+JOIN Moves m ON m.MoveID = ms.MoveID
+JOIN Pokemon p ON p.PkmnID = ms.PkmnID
+WHERE m.Name = 'Scary Face';
+
+COMMIT;
+
+
+
+-- This time we are going to add the move Switchero before we realize 
+-- its not a real move and we have to ROLLBACK it to undo our mistake.
+
+START TRANSACTION;
+
+INSERT INTO Moves (TypeId, Name, category, Power, Accuracy, PP, Effect)
+VALUES (1, 'Switchero', 'Status', NULL, 100, 10, 'Switchs out the target and the user.');
+
+SET @sSwitchero_id = LAST_INSERT_ID();
+
+INSERT INTO Move_Sets (PkmnID, MoveID)
+VALUES (25, @sSwitchero_id),
+       (26, @sSwitchero_id);
+ 
+SELECT m.MoveID, m.Name, p.PkmnName
+FROM Move_Sets ms
+JOIN Moves m ON m.MoveID = ms.MoveID
+JOIN Pokemon p ON p.PkmnID = ms.PkmnID
+WHERE m.Name = 'Scary Face';
+
+ROLLBACK;
